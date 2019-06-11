@@ -1,4 +1,4 @@
-= TrainTimetable Library for Arduino =
+= TrainTimetableDisplay Library for Arduino =
 
 This library is used to display a train timetable on a 0.96" TFT.
 It provides one header line and 7 timetable entry lines. 

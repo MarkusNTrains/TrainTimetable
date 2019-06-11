@@ -45,7 +45,6 @@ TimeTable::TimeTable(uint8_t CS_PIN, uint8_t DC_PIN, uint8_t RST_PIN)
 	// set the font color to white
 	m_txt_color = m_screen->newColor(255, 255, 255);
 	m_screen->stroke(m_txt_color);
-	//m_screen->stroke(255, 255, 255);
 	// set the font size
 	m_screen->setTextSize(1);
 	

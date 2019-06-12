@@ -15,7 +15,7 @@ $Id:  $
 
 //-----------------------------------------------------------------------------
 // includes
-#include <TrainTimetable.h>
+#include "TimetableDisplay.h"
 #include <SPI.h>
 
 
@@ -27,7 +27,7 @@ $Id:  $
 // description:
 //   constructor
 //*****************************************************************************
-TimeTable::TimeTable(uint8_t CS_PIN, uint8_t DC_PIN, uint8_t RST_PIN)
+TimetableDisplay::TimetableDisplay(uint8_t CS_PIN, uint8_t DC_PIN, uint8_t RST_PIN)
 {
 	m_screen = new TFT(CS_PIN, DC_PIN, RST_PIN);
 
@@ -60,7 +60,7 @@ TimeTable::TimeTable(uint8_t CS_PIN, uint8_t DC_PIN, uint8_t RST_PIN)
 // description:
 //   destructor
 //*****************************************************************************
-TimeTable::~TimeTable()
+TimetableDisplay::~TimetableDisplay()
 {
 	free(m_screen);
 }
@@ -70,7 +70,7 @@ TimeTable::~TimeTable()
 // description:
 //   show one line on time table
 //*****************************************************************************
-void TimeTable::SetLine(train_type_t type, const char* time, const char* target, const char* platform, uint8_t line)
+void TimetableDisplay::SetLine(train_type_t type, const char* time, const char* target, const char* platform, uint8_t line)
 {
 	char txt[5] = { 0 };
 	uint16_t bg_color = 0x0000;
@@ -109,7 +109,7 @@ void TimeTable::SetLine(train_type_t type, const char* time, const char* target,
 // description:
 //   get text of train type
 //*****************************************************************************
-void TimeTable::DrawTrainType(train_type_t type, uint8_t x, uint8_t y)
+void TimetableDisplay::DrawTrainType(train_type_t type, uint8_t x, uint8_t y)
 {
 	uint16_t white = m_screen->newColor(255, 255, 255);
 	uint16_t yellow = m_screen->newColor(255, 255, 0);

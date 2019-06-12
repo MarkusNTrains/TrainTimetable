@@ -20,7 +20,7 @@ $Id:  $
 
 //-----------------------------------------------------------------------------
 // includes
-#include <TrainTimetable.h>
+#include "TimetableDisplay.h"
 
 
 //----------------------------------------------------------------------------
@@ -40,7 +40,7 @@ $Id:  $
 //----------------------------------------------------------------------------
 // create an instance of the library
 //TFT TFTscreen = TFT(TFT_CS_PIN, TFT_DC_PIN, TFT_RST_PIN);
-TimeTable* s_time_table;
+TimetableDisplay* s_time_table;
 
 // char array to print to the screen
 //char sensorPrintout[4];
@@ -83,7 +83,7 @@ TimeTable* s_time_table;
 //*****************************************************************************
 void setup() 
 {
-  s_time_table = new TimeTable(TFT_CS_PIN, TFT_DC_PIN, TFT_RST_PIN);
+  s_time_table = new TimetableDisplay(TFT_CS_PIN, TFT_DC_PIN, TFT_RST_PIN);
   
   /*show_train("    Zeit   Nach      Gleis", 0);
   show_train("S2  13:48  Domat/Ems    13", 1);
@@ -96,13 +96,13 @@ void setup()
   char a[10];
   sprintf(a, "%d  %d", TFTscreen.width(), TFTscreen.height());
   show_train(a, 7);*/
-  s_time_table->SetLine(TimeTable::S2,  "13:48", "Domat/Ems",  13, 1);
-  s_time_table->SetLine(TimeTable::ICE, "13:57", "Glarus",     11, 2);
-  s_time_table->SetLine(TimeTable::EC,  "14:04", "Schwanden",  54, 3);
-  s_time_table->SetLine(TimeTable::RE,  "14:19", "Luchsingen", 21, 4);
-  s_time_table->SetLine(TimeTable::S10, "14:21", "Linthal",    7,  5);
-  s_time_table->SetLine(TimeTable::S8,  "14:32", "Chur",       8,  6);
-  s_time_table->SetLine(TimeTable::R,   "14:41", "Zurich",     1,  7);
+  s_time_table->SetLine(TimetableDisplay::S2,  "13:48", "Glarus",     13, 1);
+  s_time_table->SetLine(TimetableDisplay::ICE, "13:57", "Frankfurt",  11, 2);
+  s_time_table->SetLine(TimetableDisplay::EC,  "14:04", "Paris",      54, 3);
+  s_time_table->SetLine(TimetableDisplay::RE,  "14:19", "Chur",       21, 4);
+  s_time_table->SetLine(TimetableDisplay::S10, "14:21", "Linthal",    7,  5);
+  s_time_table->SetLine(TimetableDisplay::S8,  "14:32", "Rapperswil", 8,  6);
+  s_time_table->SetLine(TimetableDisplay::R,   "14:41", "Bilten",     1,  7);
 
   delay(1000);
 }

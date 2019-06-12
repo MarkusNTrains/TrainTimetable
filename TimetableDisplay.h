@@ -13,8 +13,8 @@ $Id:  $
 *******************************************************************************/
 
 
-#ifndef TIMETABLE_H
-#define TIMETABLE_H
+#ifndef _TIMETABLE_DISPLAY_H
+#define _TIMETABLE_DISPLAY_H
 
 
 //----------------------------------------------------------------------------
@@ -31,7 +31,7 @@ $Id:  $
 
 //----------------------------------------------------------------------------
 // class
-class TimeTable
+class TimetableDisplay
 {
 	public:
 		typedef enum 
@@ -55,8 +55,8 @@ class TimeTable
 			S10,
 		} train_type_t;
 
-		TimeTable(uint8_t CS_PIN, uint8_t DC_PIN, uint8_t RST_PIN);
-		~TimeTable();
+		TimetableDisplay(uint8_t CS_PIN, uint8_t DC_PIN, uint8_t RST_PIN);
+		~TimetableDisplay();
 		void SetLine(train_type_t type, const char* time, const char* target, const char* platform, uint8_t line);
 		
 	private:

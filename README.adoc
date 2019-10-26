@@ -4,7 +4,7 @@ This library is used to display a train timetable on a 0.96" TFT.
 It provides one header line and 7 timetable entry lines. 
 
 For more information about this library please visit us at
-https://www.youtube.com/watch?v=JH6w2nmORbM
+https://youtu.be/JH6w2nmORbM
 https://www.youtube.com/MarkusNTrains
 
 == License ==

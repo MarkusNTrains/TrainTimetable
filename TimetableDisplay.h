@@ -53,6 +53,7 @@ class TimetableDisplay
 			S8,
 			S9,
 			S10,
+			S11,
 		} train_type_t;
 
 		TimetableDisplay(uint8_t CS_PIN, uint8_t DC_PIN, uint8_t RST_PIN);

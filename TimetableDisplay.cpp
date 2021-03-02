@@ -109,6 +109,16 @@ void TimetableDisplay::SetLine(train_type_t type, const char* time, const char* 
 // description:
 //   get text of train type
 //*****************************************************************************
+void TimetableDisplay::Clear(void)
+{
+    m_screen->fillScreen(m_screen->newColor(0, 0, 0xFF));
+}
+
+
+//*****************************************************************************
+// description:
+//   get text of train type
+//*****************************************************************************
 void TimetableDisplay::DrawTrainType(train_type_t type, uint8_t x, uint8_t y)
 {
 	uint16_t white = m_screen->newColor(255, 255, 255);

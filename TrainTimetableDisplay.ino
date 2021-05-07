@@ -67,6 +67,7 @@ void loop()
 {
   // update display with new time table information
   s_time_table->Clear();
+  s_time_table->SetHeader();
   s_time_table->SetLine(TimetableDisplay::S2,  "13:48", "Glarus",     13, 1);
   s_time_table->SetLine(TimetableDisplay::ICE, "13:57", "Frankfurt",  11, 2);
   s_time_table->SetLine(TimetableDisplay::EC,  "14:04", "Paris",      54, 3);
@@ -77,6 +78,7 @@ void loop()
   delay(2000);
 
   s_time_table->Clear();
+  s_time_table->SetLine("  Test Linie", 0);
   s_time_table->SetLine(TimetableDisplay::S2,  "13:48", "London",     13, 1);
   s_time_table->SetLine(TimetableDisplay::ICE, "13:57", "Mannheim",   11, 2);
   s_time_table->SetLine(TimetableDisplay::EC,  "14:04", "Rastatt",    54, 3);

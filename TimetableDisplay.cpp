@@ -48,11 +48,7 @@ TimetableDisplay::TimetableDisplay(uint8_t CS_PIN, uint8_t DC_PIN, uint8_t RST_P
 	// set the font size
 	m_screen->setTextSize(1);
 	
-	
-	// draw header line
-	m_screen->text("Zeit", X_POS_TIME, Y_POS_START);
-	m_screen->text("Nach", X_POS_TARGET, Y_POS_START);
-	m_screen->text("Gleis", X_POS_PLATFORM - ((3 * (CHAR_WIDTH + CHAR_SPACE_WIDTH)) + CHAR_WIDTH), Y_POS_START);
+	this->SetHeader();
 }
 
 
@@ -63,6 +59,19 @@ TimetableDisplay::TimetableDisplay(uint8_t CS_PIN, uint8_t DC_PIN, uint8_t RST_P
 TimetableDisplay::~TimetableDisplay()
 {
 	free(m_screen);
+}
+
+
+//*****************************************************************************
+// description:
+//   set default header
+//*****************************************************************************
+void TimetableDisplay::SetHeader()
+{
+    // draw header line
+    m_screen->text("Zeit", X_POS_TIME, Y_POS_START);
+    m_screen->text("Nach", X_POS_TARGET, Y_POS_START);
+    m_screen->text("Gleis", X_POS_PLATFORM - ((3 * (CHAR_WIDTH + CHAR_SPACE_WIDTH)) + CHAR_WIDTH), Y_POS_START);    
 }
 
 
@@ -102,6 +111,27 @@ void TimetableDisplay::SetLine(train_type_t type, const char* time, const char* 
 			m_screen->text(txt, X_POS_PLATFORM, y);
 		}
 	}
+}
+
+
+//*****************************************************************************
+// description:
+//   set line
+//*****************************************************************************
+void TimetableDisplay::SetLine(const char* txt, uint8_t line)
+{
+    uint8_t y = (line * LINE_HEIGHT) + Y_POS_START;
+    m_screen->text(txt, X_POS_START, y);
+}
+
+
+//*****************************************************************************
+// description:
+//   get text of train type
+//*****************************************************************************
+void TimetableDisplay::Clear(void)
+{
+    m_screen->fillScreen(m_screen->newColor(0, 0, 0xFF));
 }
 
 

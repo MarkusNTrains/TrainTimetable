@@ -58,7 +58,10 @@ class TimetableDisplay
 
 		TimetableDisplay(uint8_t CS_PIN, uint8_t DC_PIN, uint8_t RST_PIN);
 		~TimetableDisplay();
-		void SetLine(train_type_t type, const char* time, const char* target, const char* platform, uint8_t line);
+        void Clear(void);
+        void SetHeader();
+        void SetLine(train_type_t type, const char* time, const char* target, const char* platform, uint8_t line);
+        void SetLine(const char* txt, uint8_t line);
 		
 	private:
 		const uint8_t VIEWING_AREA_WIDTH = 160;
@@ -79,7 +82,7 @@ class TimetableDisplay
 		
 		TFT* m_screen;
 		uint16_t m_txt_color;
-		
+
 		void DrawTrainType(train_type_t type, uint8_t x, uint8_t y);
 };
 
